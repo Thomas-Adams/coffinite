@@ -1,0 +1,35 @@
+= Coffinite
+
+hansheinrich.adams@yahoo.com
+
+== Notes about Maven, Micronaut and Lombok in IntelliJ
+
+
+Make sure you use the right order in the annotation paths in the pom.xml, lombok
+must precede everything else. Also do the build with Maven alone, and switch off
+annotation processing in IntelliJ.
+
+```
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <configuration>
+        <!-- Uncomment to enable incremental compilation -->
+        <useIncrementalCompilation>true</useIncrementalCompilation>
+        <annotationProcessorPaths combine.self="override">
+            <path>
+                <!-- must precede micronaut-inject-java -->
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </path>
+            <path>
+                <groupId>io.micronaut</groupId>
+                <artifactId>micronaut-inject-java</artifactId>
+                <version>${micronaut.version}</version>
+            </path>
+            ...
+        </annotationProcessorPaths>
+    </configuration>
+</plugin>
+```

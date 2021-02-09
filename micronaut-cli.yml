@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: org.micronaut.coffinite
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [ annotation-api, app-name, asciidoctor, assertj, data, data-jpa, hamcrest, hibernate-jpa, hibernate-validator, http-client, java, java-application, jax-rs, jdbc-hikari, junit, lombok, maven, mockito, netty-server, postgres, properties, readme, security, security-annotations, security-jwt, shade, slf4j-simple, testcontainers ]
